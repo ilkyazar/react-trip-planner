@@ -1,0 +1,13 @@
+.budget-container {
+    display: flex;
+}
+
+.show-budget {
+    cursor: pointer;
+    margin-bottom : 0 !important;
+}
+
+.edit-budget {
+    display: flex;
+    height: 62px;
+}
