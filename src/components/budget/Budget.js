@@ -25,7 +25,7 @@ const Budget = () => {
                 <EditBudget handleSaveClick={handleSaveClick} budget={budget} />
             ) : (
                 <div className='alert alert-secondary show-budget' onClick={handleEditClick}>
-                    <span>Budget: £{budget}</span>
+                    <span>Budget: ${budget}</span>
                     <RiEdit2Fill size="1.75em" />
                 </div>
             )}

@@ -8,7 +8,7 @@ const EditBudget = (props) => {
 
 	return (
 		<div className="edit-budget">
-			<InputGroup.Text>£</InputGroup.Text>
+			<InputGroup.Text>$</InputGroup.Text>
 			<input
 				required='required'
 				type='number'

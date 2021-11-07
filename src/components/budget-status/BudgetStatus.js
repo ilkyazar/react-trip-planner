@@ -21,7 +21,7 @@ const BudgetStatus = () => {
     return (
         <React.Fragment>
             <div className={`alert p-4 ${alertType}`}>
-                <span>Remaining: £{budget - totalExpenses}</span>
+                <span>Remaining: ${budget - totalExpenses}</span>
             </div>
             {budget - totalExpenses >= 0 && selectedCities.length >= 3 &&
                 <div className="d-grid gap-2">

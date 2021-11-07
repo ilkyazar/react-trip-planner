@@ -4,11 +4,26 @@ import TripCard from '../trip-card/TripCard';
 import TripCityGallery from '../trip-city-gallery/TripCityGallery';
 import { AppContext } from '../../context/AppContext';
 import { getSelectedCities } from '../../utils/StoreUtils';
+import { generatePlans, createPlanString, createPlanFooterString } from '../../utils/PlanUtils';
 
 const TripPlan = () => {
 
-    const { cities, selectedCityIds } = useContext(AppContext);
+    const { budget, cities, selectedCityIds } = useContext(AppContext);
     const selectedCities = getSelectedCities(cities, selectedCityIds);
+
+    const plans = generatePlans(budget, selectedCities);
+
+    const firstPlan = plans[0];
+    const firstPlanText = createPlanString(firstPlan);
+    const firstPlanFooter = createPlanFooterString(firstPlan);
+
+    const secondPlan = plans[1];
+    const secondPlanText = createPlanString(secondPlan);
+    const secondPlanFooter = createPlanFooterString(secondPlan);
+
+    const thirdPlan = plans[2];
+    const thirdPlanText = createPlanString(thirdPlan);
+    const thirdPlanFooter = createPlanFooterString(thirdPlan);
 
     return (
         <React.Fragment>
@@ -16,27 +31,24 @@ const TripPlan = () => {
             <CardGroup>
                 <TripCard
                     tripTitle="Plan 1"
-                    tripText="3 days Paris (1500 USD) + 2 days Roma (600 USD) + 2 days Barcelona (800 USD) + 2 days İstanbul (100
-                        USD) = 3000 USD"
-                    tripFooter="7 days, 3000 USD" />
+                    tripText={firstPlanText} 
+                    tripFooter={firstPlanFooter}/>
                 <TripCard
                     tripTitle="Plan 2"
-                    tripText="3 days Paris (1500 USD) + 2 days Roma (600 USD) + 2 days Barcelona (800 USD) + 2 days İstanbul (100
-                        USD) = 3000 USD"
-                    tripFooter="7 days, 3000 USD" />
+                    tripText={secondPlanText}
+                    tripFooter={secondPlanFooter}/>
                 <TripCard
                     tripTitle="Plan 3"
-                    tripText="3 days Paris (1500 USD) + 2 days Roma (600 USD) + 2 days Barcelona (800 USD) + 2 days İstanbul (100
-                        USD) = 3000 USD"
-                    tripFooter="7 days, 3000 USD" />
+                    tripText={thirdPlanText}
+                    tripFooter={thirdPlanFooter}/>
             </CardGroup>
-            <ul>
+            <div>
                 {selectedCities.map(city => (
                     <TripCityGallery
                         key={city.id}
                         name={city.name} />
                 ))}
-            </ul>
+            </div>
         </React.Fragment>
     )
 }

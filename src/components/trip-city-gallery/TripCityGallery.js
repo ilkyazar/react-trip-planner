@@ -16,7 +16,7 @@ const TripCityGallery = (props) => {
     useEffect(() => {
         axios.get(`https://api.pexels.com/v1/search`, {
             headers: {
-                authorization: "563492ad6f91700001000001b68de3026efe4285afa7c113bb10384e"
+                authorization: process.env.REACT_APP_API_KEY,
             },
             params: {
                 query: query,
@@ -35,15 +35,15 @@ const TripCityGallery = (props) => {
     return (
         <React.Fragment>
             <h4>{query}</h4>
-            <CardGroup>
+            <CardGroup className="card-group">
                 <Card>
-                    <Card.Img className="card-img" variant="top" src={firstImg} />
+                    <Card.Img className="card-img" variant="top" src={firstImg.toString()} />
                 </Card>
                 <Card>
-                    <Card.Img className="card-img" variant="top" src={secondImg} />
+                    <Card.Img className="card-img" variant="top" src={secondImg.toString()} />
                 </Card>
                 <Card>
-                    <Card.Img className="card-img" variant="top" src={thirdImg} />
+                    <Card.Img className="card-img" variant="top" src={thirdImg.toString()} />
                 </Card>
             </CardGroup>
         </React.Fragment>

@@ -36,7 +36,7 @@ const City = (props) => {
 			{props.name}
 			<div>
 				<span className="badge rounded-pill bg-success mx-8">
-					£{props.cost}
+					${props.cost}
 				</span>
 			</div>
 		</li>
