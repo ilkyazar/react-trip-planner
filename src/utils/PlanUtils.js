@@ -56,20 +56,29 @@ export  const createPlanFooterString = (resultingCities) => {
     return totalDays + " days, " + totalCost + " USD";
 }
 
+const getTotalCostOf = (selectedCities) => {
+    let totalCost = 0;
+    for (let i = 0; i < selectedCities.length; i++) {
+        totalCost += selectedCities[i].cost;
+    }
+    return totalCost;
+}
+
 export  const generatePlans = (budget, selectedCities) => {
     let firstPlan = selectedCities.map(obj => ({ ...obj, days: 0 }));    
-    let firstMinCityCost = Math.min(...selectedCities.map(c => c.cost));
-    let firstMaxCityCost = Math.max(...selectedCities.map(c => c.cost));
-
-    let secondPlan = firstPlan.filter((city) => city.cost !== firstMinCityCost).map(obj => ({ ...obj, days: 0 }));
-    let secondMinCityCost =  Math.min(...secondPlan.map(c => c.cost));
+    let minCityCost = Math.min(...selectedCities.map(c => c.cost));
+    let maxCityCost = Math.max(...selectedCities.map(c => c.cost));
     
-    let thirdPlan = firstPlan.filter((city) => city.cost !== firstMaxCityCost).map(obj => ({ ...obj, days: 0 }));
-    let thirdMinCityCost =  Math.min(...thirdPlan.map(c => c.cost));
+    let secondPlan = firstPlan.filter((city) => city.cost !== maxCityCost).map(obj => ({ ...obj, days: 0 }));
 
-    let firstPlanCities = generatePlanHelper(budget, firstPlan, firstMinCityCost);
-    let secondPlanCities = generatePlanHelper(budget, secondPlan, secondMinCityCost);
-    let thirdPlanCities = generatePlanHelper(budget, thirdPlan, thirdMinCityCost);
+    let firstPlanCities = generatePlanHelper(budget, firstPlan, minCityCost);
+
+    let totalCost = getTotalCostOf(selectedCities);
+    let secondPlanCities1 = generatePlanHelper(budget - totalCost, secondPlan, minCityCost);
+    let secondPlanCities2 = generatePlanHelper(totalCost, firstPlan, minCityCost);
+    let secondPlanCities = editCityObjArray([...secondPlanCities1, ...secondPlanCities2]);
+
+    let thirdPlanCities = generatePlanHelper(budget, secondPlan, minCityCost);
 
     return [[...firstPlanCities], [...secondPlanCities], [...thirdPlanCities]];
 }
