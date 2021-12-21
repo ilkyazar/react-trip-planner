@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-trip-planner/static/css/main.95d40d2f.chunk.css",
+    "main.js": "/react-trip-planner/static/js/main.effc484c.chunk.js",
+    "main.js.map": "/react-trip-planner/static/js/main.effc484c.chunk.js.map",
+    "runtime-main.js": "/react-trip-planner/static/js/runtime-main.d21a82c4.js",
+    "runtime-main.js.map": "/react-trip-planner/static/js/runtime-main.d21a82c4.js.map",
+    "static/css/2.4659568d.chunk.css": "/react-trip-planner/static/css/2.4659568d.chunk.css",
+    "static/js/2.058e64e5.chunk.js": "/react-trip-planner/static/js/2.058e64e5.chunk.js",
+    "static/js/2.058e64e5.chunk.js.map": "/react-trip-planner/static/js/2.058e64e5.chunk.js.map",
+    "index.html": "/react-trip-planner/index.html",
+    "static/css/2.4659568d.chunk.css.map": "/react-trip-planner/static/css/2.4659568d.chunk.css.map",
+    "static/css/main.95d40d2f.chunk.css.map": "/react-trip-planner/static/css/main.95d40d2f.chunk.css.map",
+    "static/js/2.058e64e5.chunk.js.LICENSE.txt": "/react-trip-planner/static/js/2.058e64e5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d21a82c4.js",
+    "static/css/2.4659568d.chunk.css",
+    "static/js/2.058e64e5.chunk.js",
+    "static/css/main.95d40d2f.chunk.css",
+    "static/js/main.effc484c.chunk.js"
+  ]
+}
