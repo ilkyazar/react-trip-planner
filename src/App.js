@@ -18,7 +18,7 @@ const App = () => {
 const AppWrapper = () => {
   return (
     <AppProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <App />
       </Router>
     </AppProvider>
